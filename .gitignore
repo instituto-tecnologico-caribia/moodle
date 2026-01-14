@@ -1,0 +1,8 @@
+# files
+.vscode/
+.idea/
+
+moodledata/
+data/
+plugins/
+

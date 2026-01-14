@@ -1,0 +1,74 @@
+version: "3.9"
+
+services:
+  caribia:
+    build:
+      context: "./moodle/"
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./moodle:/var/www/html/moodle
+      - ./data/moodledata:/var/www/html/moodledata
+    command: php -S 0.0.0.0:8080 -t /var/www/html/moodle
+    restart: unless-stopped
+    environment:
+      - DATABASE_TYPE=pgsql
+      - DATABASE_HOST=postgres
+      - DATABASE_NAME=postgres
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_PORT=5432
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - postgres
+    networks:
+      - caribia_network
+
+  main:
+    build:
+      context: "./servers/main/"
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./servers/main:/app
+      - /app/node_modules
+    restart: unless-stopped
+    command: npm run dev
+    depends_on:
+      - caribia
+    networks:
+      - caribia_network
+
+  postgres:
+    image: postgres:alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ./data/postgres/data:/var/lib/postgresql
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    restart: unless-stopped
+    networks:
+      - caribia_network
+
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - caribia_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+networks:
+  caribia_network:
+    driver: bridge

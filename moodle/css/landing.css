@@ -1,0 +1,7 @@
+#LandingPage {
+    width: 100dvw !important;
+    position: fixed;
+    left: 0;
+   
+    background: red;
+}

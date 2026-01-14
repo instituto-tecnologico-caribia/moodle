@@ -1,0 +1,1 @@
+alert("im in post.js");
