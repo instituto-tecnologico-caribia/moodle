@@ -1,43 +1,52 @@
-FROM php:8.3-cli
+FROM php:8.3-apache
 
-# Instalar dependencias del sistema
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    git unzip curl libpng-dev libjpeg-dev libfreetype6-dev libicu-dev libxml2-dev \
-    libzip-dev libxslt-dev libpq-dev libcurl4-openssl-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && pecl install redis \
-    && docker-php-ext-enable redis \
+    git unzip libpq-dev libfreetype6-dev libpng-dev libjpeg-dev \
+    libicu-dev libxml2-dev libzip-dev libxslt-dev libonig-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Instalar extensiones PHP para Moodle
-RUN docker-php-ext-install -j$(nproc) pgsql pdo_pgsql gd intl xml zip mysqli pdo_mysql opcache
+# Configure and install PHP extensions
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) \
+    gd intl pdo_pgsql pgsql opcache xml zip xsl soap mbstring exif
 
-# Configuración PHP para Moodle
+# Install Redis extension
+RUN pecl install redis \
+    && docker-php-ext-enable redis
+
+# Configure PHP settings for Moodle
 RUN echo "max_input_vars = 5000" > /usr/local/etc/php/conf.d/moodle.ini && \
     echo "upload_max_filesize = 100M" >> /usr/local/etc/php/conf.d/moodle.ini && \
     echo "post_max_size = 100M" >> /usr/local/etc/php/conf.d/moodle.ini && \
     echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/moodle.ini && \
     echo "max_execution_time = 300" >> /usr/local/etc/php/conf.d/moodle.ini
 
-# Instalar Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Set ServerName to suppress warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-# Copiar Moodle
-WORKDIR /var/www/html/moodle
-COPY . /var/www/html/moodle/
+# Enable Apache modules
+RUN a2enmod rewrite
 
-# Crear Moodle data
-RUN mkdir -p /var/www/html/moodledata && \
-    chown -R www-data:www-data /var/www/html && \
-    chmod -R 0777 /var/www/html/moodledata
+# Set working directory
+WORKDIR /var/www/html
 
-# Instalar dependencias PHP del plugin GraphQL
-WORKDIR /var/www/html/moodle/local/graphql
-RUN composer install
+# Create entrypoint script
+RUN echo '#!/bin/bash\n\
+    set -e\n\
+    \n\
+    # Create and set permissions for moodledata\n\
+    mkdir -p /var/www/html/moodledata\n\
+    chown -R www-data:www-data /var/www/html/moodledata\n\
+    chmod -R 0777 /var/www/html/moodledata\n\
+    \n\
+    # Ensure www-data owns all web files\n\
+    chown -R www-data:www-data /var/www/html\n\
+    \n\
+    # Start Apache\n\
+    exec apache2-foreground' > /usr/local/bin/moodle-entrypoint.sh \
+    && chmod +x /usr/local/bin/moodle-entrypoint.sh
 
-# Exponer puerto
-EXPOSE 8080
+EXPOSE 80
 
-# Iniciar servidor PHP
-WORKDIR /var/www/html/moodle
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html/moodle"]
+ENTRYPOINT ["/usr/local/bin/moodle-entrypoint.sh"]

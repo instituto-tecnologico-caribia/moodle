@@ -5,13 +5,15 @@ class Authentications
 {
     public static function authenticate($headers)
     {
-        global $DB;
-
+        $method = $_SERVER['REQUEST_METHOD'];
+        if ($method != 'POST') {
+            throw new Exception('Only POST method is allowed');
+        }
+        
         $token = $headers['Authorization'] ?? '';
         if (strpos($token, 'Bearer ') === 0) {
             $token = substr($token, 7);
         }
-
 
         // --- Get the user associated with the token ---
         if (!$token) {
@@ -21,6 +23,7 @@ class Authentications
         }
 
         // --- Check token in Moodle ---
+        global $DB;
         $tokenrecord = $DB->get_record('external_tokens', ['token' => $token, 'userid' => null], '*', IGNORE_MISSING);
         if (!$tokenrecord) {
             // Try without userid = null, for normal tokens

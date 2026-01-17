@@ -5,6 +5,7 @@
 moodledata/
 data/
 plugins/
+.env
 
 # moodle/local/mc_plugin
 # moodle/mod/plugnmeet

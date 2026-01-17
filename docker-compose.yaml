@@ -1,44 +1,18 @@
 version: "3.9"
 
 services:
-  caribia:
+  moodle:
     build:
-      context: "./moodle/"
-      dockerfile: Dockerfile
+      context: "./moodle"
     ports:
-      - "8080:8080"
+      - "8080:80"
     volumes:
-      - ./moodle:/var/www/html/moodle
       - ./data/moodledata:/var/www/html/moodledata
-    command: php -S 0.0.0.0:8080 -t /var/www/html/moodle
-    restart: unless-stopped
-    environment:
-      - DATABASE_TYPE=pgsql
-      - DATABASE_HOST=postgres
-      - DATABASE_NAME=postgres
-      - DATABASE_USER=postgres
-      - DATABASE_PASSWORD=postgres
-      - DATABASE_PORT=5432
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
+      - ./moodle:/var/www/html
     depends_on:
       - postgres
-    networks:
-      - caribia_network
-
-  main:
-    build:
-      context: "./servers/main/"
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./servers/main:/app
-      - /app/node_modules
-    restart: unless-stopped
-    command: npm run dev
-    depends_on:
-      - caribia
+    env_file:
+      - .env
     networks:
       - caribia_network
 
@@ -48,10 +22,8 @@ services:
       - 5432:5432
     volumes:
       - ./data/postgres/data:/var/lib/postgresql
-    environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_DB=postgres
+    env_file:
+      - .env
     restart: unless-stopped
     networks:
       - caribia_network
