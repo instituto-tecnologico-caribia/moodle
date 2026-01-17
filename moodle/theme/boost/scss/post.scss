@@ -54,6 +54,10 @@
     background: rgb(245, 245, 245) !important;
   }
 
+  video {
+    transform: scaleX(-1) !important;
+  }
+
   .courseindex .courseindex-section.current {
     border-left-color: transparent !important;
     border-left: none !important;

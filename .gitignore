@@ -6,3 +6,5 @@ moodledata/
 data/
 plugins/
 
+# moodle/local/mc_plugin
+# moodle/mod/plugnmeet

@@ -1,7 +1,12 @@
 #LandingPage {
-    width: 100dvw !important;
-    position: fixed;
-    left: 0;
-   
-    background: red;
+  width: 100dvw !important;
+  position: fixed;
+  left: 0;
+
+  background: red;
+}
+
+video {
+    width: 300px !important;
+  transform: translate(-1) !important;
 }
