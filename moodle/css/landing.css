@@ -1,12 +1,16 @@
 #LandingPage {
-  width: 100dvw !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  text-align: left;
+
   position: fixed;
   left: 0;
+  top: 0;
 
-  background: red;
+  overflow: scroll !important;
 }
 
 video {
-    width: 300px !important;
+  width: 300px !important;
   transform: translate(-1) !important;
 }

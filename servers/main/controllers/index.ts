@@ -1,1 +1,0 @@
-export { MoodleController } from './MoodleController';

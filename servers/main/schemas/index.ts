@@ -1,1 +1,0 @@
-export { MoodleZodSchemas } from "./moodle"

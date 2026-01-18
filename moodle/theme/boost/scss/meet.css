@@ -1,3 +1,33 @@
+:root {
+  /* Base dark colors */
+  --color-dark-primary: #000;
+  --color-dark-secondary: #000;
+
+  /* RED PALETTE (your main theme) */
+  --darkreader-bg--color-red-50: #370404;
+  --darkreader-bg--color-red-100: #440000;
+  --darkreader-bg--color-red-500: #b1030c;
+
+  --darkreader-text--color-red-200: #ffa6a6;
+  --darkreader-text--color-red-400: #ff6063;
+  --darkreader-text--color-red-500: #fb3943;
+  --darkreader-text--color-red-600: #ff2a34;
+  --darkreader-text--color-red-700: #ff454c;
+
+  --darkreader-border--color-red-200: #5a0000;
+  --darkreader-border--color-red-500: #8b0000;
+
+  /* 🔥 OVERRIDE BLUE → RED */
+  --darkreader-bg--color-blue-50: var(--darkreader-bg--color-red-50);
+  --darkreader-bg--color-blue-100: var(--darkreader-bg--color-red-100);
+  --darkreader-bg--color-blue-500: var(--darkreader-bg--color-red-500);
+
+  --darkreader-text--color-blue-500: var(--darkreader-text--color-red-500);
+  --darkreader-text--color-blue-600: var(--darkreader-text--color-red-600);
+
+  --darkreader-border--color-blue-500: var(--darkreader-border--color-red-500);
+}
+
 video {
-    transform: scaleX(-1);
+  transform: scaleX(-1) !important;
 }

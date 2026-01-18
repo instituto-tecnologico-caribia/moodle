@@ -1,0 +1,47 @@
+### get_all_assignments
+POST http://localhost:8080/local/servers/main.php HTTP/1.1
+Content-Type: application/json
+api-token: Bearer 4fe406d8b89fd5df6a0f71fe3dfe8502
+
+{
+  "action": "get_all_assignments"
+}
+
+
+### create_new_assignment
+POST http://localhost:8080/local/servers/main.php HTTP/1.1
+Content-Type: application/json
+api-token: Bearer 4fe406d8b89fd5df6a0f71fe3dfe8502
+
+{
+  "action": "create_new_course",
+  "data": {
+    "fullname": "JavaScript",
+    "shortname": "JS-112",
+    "category": 1,
+    "startdate": "2026-02-02",
+    "enddate": "2026-05-02",
+    "idnumber": "js-112-2026",
+    "summary": "# Assignment for JavaScript"
+  }
+}
+
+
+### create_new_assignment
+POST http://localhost:8080/local/servers/main.php HTTP/1.1
+authorization: Bearer 9b97a190cfd7a1ba683c8bec9b494a6c
+Content-Type: application/json
+
+{
+  "action": "create_new_assignment",
+  "data": {
+    "course": "2",
+    "name": "Assignment 1",
+    "intro": "0",
+    "activity": "0",
+    "allowsubmissionsfromdate": "0",
+    "duedate": "0",
+    "cutoffdate": "0",
+    "gradingduedate": "0"
+  }
+}

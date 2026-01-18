@@ -28,6 +28,7 @@ require(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/lib.php');
 
 $PAGE->requires->css(__DIR__ . '../../css/landing.css');
+$PAGE->requires->css(__DIR__ . '../../theme/boost/scss/meet.css');
 
 $id = required_param('id', PARAM_INT);
 

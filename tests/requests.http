@@ -1,0 +1,29 @@
+
+### get token user
+POST http://localhost:8080/local/servers/main.php HTTP/1.1
+authorization: Bearer 9b97a190cfd7a1ba683c8bec9b494a6c
+Content-Type: application/json
+
+{
+    "action": "get_user"
+}
+
+### get token course
+POST http://localhost:8080/local/servers/main.php HTTP/1.1
+authorization: Bearer 9b97a190cfd7a1ba683c8bec9b494a6c
+Content-Type: application/json
+
+{
+  "action": "create_user",
+  "data": {
+    "firstname": "Addy Esteban",
+    "lastname": "Jaime Cordero",
+    "username": "addyjaime",
+    "email": "addyjaime@gmail.com",
+    "password": "Alicia01$",
+    "idnumber": "00000000000",
+    "phone": "646-389-2132",
+    "country": "DO",
+    "lang": "en"
+  }
+}

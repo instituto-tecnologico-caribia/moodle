@@ -92,10 +92,15 @@
                 <div class="divider border-left h-75 align-self-center mx-1"></div>
             {{/langmenu}}
             {{{ output.navbar_plugin_output }}}
-            <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
-                {{#usermenu}}
+            <div class="d-flex flex-grow-1 align-items-stretch usermenu-container" data-region="usermenu">
+                 {{#usermenu}}
                     {{> core/user_menu }}
                 {{/usermenu}}
+                <div class="flex ml-3 items-center space-x-4">
+                    <a href="#contact" class="bg-rose-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-rose-700 transition shadow-lg shadow-rose-200">
+                        Apply Now
+                    </a>
+                </div>            
             </div>
             {{{ output.edit_switch }}}
         </div>

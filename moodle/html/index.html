@@ -1,5 +1,478 @@
-
-
 <div id="LandingPage">
-    <h1>hola mundo!!!</h1>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nexus Institute of Technology | Elite Online IT Education</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+            body {
+                font-family: 'Inter', sans-serif;
+                scroll-behavior: smooth;
+            }
+
+            .glass-effect {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .gradient-text {
+                background: linear-gradient(90deg, #e11d48, #9f1239);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .course-card:hover {
+                transform: translateY(-5px);
+                transition: all 0.3s ease;
+            }
+
+            .hero-bg {
+                background: radial-gradient(circle at top right, #fff1f2, transparent),
+                    radial-gradient(circle at bottom left, #fff1f2, transparent);
+            }
+        </style>
+    </head>
+
+    <div class="text-slate-900 bg-white">
+        <section class="relative md:pt-48 md:pb-32 hero-bg overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div class="z-10 md:text-left">
+                    <span class="inline-block py-1 px-3 rounded-full bg-rose-100 text-rose-700 text-sm font-bold mb-6">
+                        WORLD-CLASS ONLINE EDUCATION
+                    </span>
+                    <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4">
+                        Master the <span class="gradient-text">Future</span> of Technology
+                    </h1>
+                    <p class="text-lg mb-6 text-slate-600 mx-auto md:mx-0">
+                        Earn an industry-recognized degree in Software Engineering, AI, or Cybersecurity from anywhere
+                        in
+                        the world. Real-world projects, expert mentors, and global placement.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 md:justify-start">
+                        <button
+                            class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition">
+                            Explore Programs
+                        </button>
+                        <button
+                            class="flex items-center justify-center space-x-2 border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition">
+                            <i class="fas fa-play-circle text-rose-600"></i>
+                            <span>How it Works</span>
+                        </button>
+                    </div>
+                    <div
+                        class="mt-10 flex items-center justify-center md:justify-start space-x-4 text-sm text-slate-500 font-medium">
+                        <div class="flex -space-x-2">
+                            <img src="https://i.pravatar.cc/100?u=1" class="w-8 h-8 rounded-full border-2 border-white"
+                                alt="Student">
+                            <img src="https://i.pravatar.cc/100?u=2" class="w-8 h-8 rounded-full border-2 border-white"
+                                alt="Student">
+                            <img src="https://i.pravatar.cc/100?u=3" class="w-8 h-8 rounded-full border-2 border-white"
+                                alt="Student">
+                        </div>
+                        <span>Join 15,000+ students globally</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative z-10 bg-white p-4 rounded-2xl shadow-2xl border border-slate-100">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+                            alt="Students Learning" class="rounded-xl">
+                        <div
+                            class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-slate-50 max-w-[200px]">
+                            <p class="text-3xl font-bold text-rose-600">94%</p>
+                            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Employment Rate
+                                after
+                                Graduation</p>
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -top-10 -right-10 w-64 h-64 bg-red-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30">
+                    </div>
+                    <div
+                        class="absolute -bottom-10 -left-10 w-64 h-64 bg-rose-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-y py-5 border-slate-100">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 w-full md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <p class="text-3xl font-bold text-slate-900">50+</p>
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-widest">Global Partners</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold text-slate-900">120+</p>
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-widest">Expert Mentors</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold text-slate-900">24/7</p>
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-widest">Student Support</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-bold text-slate-900">15k</p>
+                    <p class="text-sm text-slate-500 font-medium uppercase tracking-widest">Graduates</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="courses" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Elite Degree Programs</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto">Curriculums designed in collaboration with leaders from
+                        Google, Microsoft, and AWS to ensure you learn exactly what the industry needs.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+
+                    <div
+                        class="course-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition p-2">
+                        <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=400&q=80"
+                            class="w-full h-48 object-cover rounded-xl" alt="Code">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-rose-100 text-rose-700 text-xs font-bold px-2 py-1 rounded">BSc
+                                    Hons</span>
+                                <span class="text-slate-400 text-sm font-medium"><i class="far fa-clock mr-1"></i> 3
+                                    Years</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Full-Stack Software Engineering</h3>
+                            <p class="text-slate-500 text-sm mb-6">Build complex scalable applications using modern
+                                stacks
+                                like MERN and DevOps principles.</p>
+                            <hr class="mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="text-rose-600 font-bold">Enroll Open</span>
+                                <button class="text-slate-900 font-bold text-sm hover:underline">View Details <i
+                                        class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="course-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition p-2">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&q=80"
+                            class="w-full h-48 object-cover rounded-xl" alt="Security">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">MSc</span>
+                                <span class="text-slate-400 text-sm font-medium"><i class="far fa-clock mr-1"></i> 2
+                                    Years</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Cybersecurity & Ethical Hacking</h3>
+                            <p class="text-slate-500 text-sm mb-6">Master advanced defense strategies and penetration
+                                testing in our virtual labs.</p>
+                            <hr class="mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="text-red-600 font-bold">Enroll Open</span>
+                                <button class="text-slate-900 font-bold text-sm hover:underline">View Details <i
+                                        class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="course-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition p-2">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=400&q=80"
+                            class="w-full h-48 object-cover rounded-xl" alt="AI">
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <span class="bg-rose-100 text-rose-700 text-xs font-bold px-2 py-1 rounded">BSc
+                                    Hons</span>
+                                <span class="text-slate-400 text-sm font-medium"><i class="far fa-clock mr-1"></i> 3
+                                    Years</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Artificial Intelligence & Data Science</h3>
+                            <p class="text-slate-500 text-sm mb-6">Learn to build neural networks and manage Big Data
+                                ecosystems from scratch.</p>
+                            <hr class="mb-6">
+                            <div class="flex justify-between items-center">
+                                <span class="text-rose-600 font-bold">Enroll Open</span>
+                                <button class="text-slate-900 font-bold text-sm hover:underline">View Details <i
+                                        class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-8">A Different Way to <span class="text-rose-500">Learn</span></h2>
+                    <div class="space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-rose-600/20 flex-shrink-0 flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-rose-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Hands-on Sandbox</h4>
+                                <p class="text-slate-400">No more watching videos for hours. Our proprietary sandbox
+                                    lets
+                                    you write, run, and debug code directly in your browser with instant AI feedback.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-red-600/20 flex-shrink-0 flex items-center justify-center">
+                                <i class="fas fa-users text-red-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Collaborative Projects</h4>
+                                <p class="text-slate-400">Work in agile squads with students from around the world to
+                                    build
+                                    production-grade software using Git and Slack.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-emerald-600/20 flex-shrink-0 flex items-center justify-center">
+                                <i class="fas fa-briefcase text-emerald-500 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Career Accelerator</h4>
+                                <p class="text-slate-400">From the first day, we help you build your LinkedIn,
+                                    portfolio,
+                                    and resume. We guarantee interview invites at top tech firms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4 pt-12">
+                        <img src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=300&q=80"
+                            class="rounded-2xl" alt="Work">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=300&q=80"
+                            class="rounded-2xl" alt="Collaboration">
+                    </div>
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=300&q=80"
+                            class="rounded-2xl" alt="Presentation">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=300&q=80"
+                            class="rounded-2xl" alt="Office">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-24 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-16">Stories from the Field</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex text-yellow-400 mb-4 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic mb-6">"The flexibility was key. I worked a 9-to-5 while
+                            completing
+                            my MSc in Cybersecurity. Now I lead the security team at a Fintech startup."</p>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://i.pravatar.cc/100?u=jane" class="w-12 h-12 rounded-full" alt="Jane">
+                            <div>
+                                <p class="font-bold">Jane Doe</p>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-widest">Security
+                                    Analyst,
+                                    PayShield</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex text-yellow-400 mb-4 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic mb-6">"Nexus didn't just teach me coding; they taught me how to
+                            think like an engineer. The collaborative projects prepared me for the actual workplace."
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://i.pravatar.cc/100?u=mark" class="w-12 h-12 rounded-full" alt="Mark">
+                            <div>
+                                <p class="font-bold">Mark Chen</p>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-widest">Frontend
+                                    Developer, Google</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="flex text-yellow-400 mb-4 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-600 italic mb-6">"The mentorship program is world-class. Having a senior
+                            engineer from Meta review my code every week changed everything."</p>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://i.pravatar.cc/100?u=sarah" class="w-12 h-12 rounded-full" alt="Sarah">
+                            <div>
+                                <p class="font-bold">Sarah Jenkins</p>
+                                <p class="text-xs text-slate-500 font-semibold uppercase tracking-widest">Data
+                                    Scientist,
+                                    Amazon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 overflow-hidden relative">
+            <div class="max-w-4xl mx-auto px-6 relative z-10">
+                <div class="bg-rose-600 rounded-3xl p-8 md:p-16 shadow-2xl text-white text-center">
+                    <h2 class="text-4xl font-bold mb-4">Start Your Tech Journey</h2>
+                    <p class="text-rose-100 mb-10 max-w-xl mx-auto">Applications are now open for the Fall intake. Book
+                        a
+                        free consultation with an admissions advisor today.</p>
+
+                    <form class="grid md:grid-cols-2 gap-4 text-left"
+                        onsubmit="event.preventDefault(); alert('Success! Our admissions team will contact you within 24 hours.')">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2 opacity-80">Full
+                                Name</label>
+                            <input type="text" placeholder="John Doe"
+                                class="w-full px-4 py-3 rounded-xl bg-rose-700 border-none placeholder-rose-300 focus:ring-2 focus:ring-white outline-none text-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2 opacity-80">Work
+                                Email</label>
+                            <input type="email" placeholder="john@company.com"
+                                class="w-full px-4 py-3 rounded-xl bg-rose-700 border-none placeholder-rose-300 focus:ring-2 focus:ring-white outline-none text-white">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-xs font-bold uppercase tracking-wider mb-2 opacity-80">Interested
+                                Program</label>
+                            <select
+                                class="w-full px-4 py-3 rounded-xl bg-rose-700 border-none focus:ring-2 focus:ring-white outline-none text-white appearance-none">
+                                <option>Software Engineering</option>
+                                <option>Cybersecurity</option>
+                                <option>AI & Data Science</option>
+                                <option>Cloud Architecture</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2 mt-4">
+                            <button type="submit"
+                                class="w-full bg-white text-rose-600 font-bold py-4 rounded-xl hover:bg-rose-50 transition shadow-xl">
+                                Download Prospectus & Apply
+                            </button>
+                        </div>
+                        <p class="md:col-span-2 text-center text-[10px] opacity-60 mt-4">
+                            By clicking, you agree to our Terms of Service and Privacy Policy. We promise not to spam.
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-rose-50 rounded-full -z-0">
+            </div>
+        </section>
+
+        <footer class="bg-slate-900 text-white pt-20 pb-10 border-t border-slate-800">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-4 gap-12 mb-16">
+                    <div class="col-span-1 md:col-span-1">
+                        <div class="flex items-center space-x-2 mb-6">
+                            <div class="w-8 h-8 bg-rose-600 rounded flex items-center justify-center">
+                                <i class="fas fa-microchip text-white"></i>
+                            </div>
+                            <span class="text-xl font-bold">NEXUS<span class="text-rose-600">IT</span></span>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+                            Redefining online education for the next generation of tech leaders. Accredited, global, and
+                            career-first.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-slate-400 hover:text-white transition"><i
+                                    class="fab fa-twitter text-lg"></i></a>
+                            <a href="#" class="text-slate-400 hover:text-white transition"><i
+                                    class="fab fa-linkedin text-lg"></i></a>
+                            <a href="#" class="text-slate-400 hover:text-white transition"><i
+                                    class="fab fa-instagram text-lg"></i></a>
+                            <a href="#" class="text-slate-400 hover:text-white transition"><i
+                                    class="fab fa-github text-lg"></i></a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-6">Programs</h5>
+                        <ul class="space-y-4 text-sm text-slate-400">
+                            <li><a href="#" class="hover:text-rose-500 transition">Software Engineering</a></li>
+                            <li><a href="#" class="hover:text-rose-500 transition">Data Science</a></li>
+                            <li><a href="#" class="hover:text-rose-500 transition">Cloud Computing</a></li>
+                            <li><a href="#" class="hover:text-rose-500 transition">Product Management</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-6">Resources</h5>
+                        <ul class="space-y-4 text-sm text-slate-400">
+                            <li><a href="#" class="hover:text-rose-500 transition">Scholarships</a></li>
+                            <li><a href="#" class="hover:text-blue-500 transition">Student Blog</a></li>
+                            <li><a href="#" class="hover:text-blue-500 transition">Virtual Campus</a></li>
+                            <li><a href="#" class="hover:text-blue-500 transition">Help Center</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="font-bold mb-6">Contact</h5>
+                        <ul class="space-y-4 text-sm text-slate-400">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-envelope text-rose-500"></i>
+                                <span>admissions@nexus-it.edu</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-phone text-rose-500"></i>
+                                <span>+1 (888) 555-0123</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-map-marker-alt text-rose-500"></i>
+                                <span>Silicon Valley, CA (HQ)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="border-slate-800 mb-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-medium">
+                    <p>&copy; 2024 Nexus Institute of Technology. All rights reserved.</p>
+                    <div class="flex space-x-8 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Smooth scroll for anchors
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Simple nav background change on scroll
+            window.addEventListener('scroll', () => {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('shadow-md');
+                } else {
+                    nav.classList.remove('shadow-md');
+                }
+            });
+        </script>
+    </div>
 </div>
