@@ -16,8 +16,9 @@ api-token: Bearer 4fe406d8b89fd5df6a0f71fe3dfe8502
 {
   "action": "create_new_course",
   "data": {
+    "categoryid": 1,
     "fullname": "JavaScript",
-    "shortname": "JS-112",
+    "shortname": "JS-113-2026",
     "category": 1,
     "startdate": "2026-02-02",
     "enddate": "2026-05-02",

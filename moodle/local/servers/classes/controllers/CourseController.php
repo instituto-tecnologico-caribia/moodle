@@ -41,47 +41,38 @@ class CourseController {
 
     private static function getNewCourse($body, $user) {
         try {
+            global $DB;
             // $data = CourseValidator::createCourse($body->data);
-            $data = $body->data;
-            $data->startdate =  time();
-            $data->enddate = time();
+            $data = $body->data;        
             $data->timecreated = time(); // now
             $data->timemodified = time(); // now
 
-            global $DB;
-            $sql = "SELECT * FROM {course} WHERE shortname = :shortname OR idnumber = :idnumber";
-            $params = ["shortname" => $data->shortname, "idnumber" => $data->idnumber];
-            $exists = $DB->get_record_sql($sql, $params);
-            // if ($exists)
-            //     throw new Exception('Course already exists');
+            $course = new stdClass();
+            $course->fullname  = $data->fullname;
+            $course->shortname = $data->shortname;
+            $course->category  = $data->categoryid;
+            $course->startdate = Helpers::toTimestamp($data->startdate);
+            $course->enddate   = Helpers::toTimestamp($data->enddate);
 
-            $id = $DB->insert_record('course', $data, true);
-            if ($id) {
-                $sql = "SELECT * FROM {course} WHERE id = :id";
-                $course = $DB->get_record_sql($sql, ["id" => $id]);
+            $createdCourse = create_course($course);
 
-                $enrolData = ['enrol' => 'manual', 'status' => '1', 'courseid' => $id, 'sortorder' => $course->sortorder,];
-                $enrollId = $DB->insert_record("enrol", $enrolData, true);
+            // $enrolData = ['enrol' => 'manual', 'status' => '1', 'courseid' => $createdCourse->id, 'sortorder' => $createdCourse->sortorder,];
+            // $enrollId = $DB->insert_record("enrol", $enrolData, true);
 
-                global $WEBSERVICES;
+            // $userEnrolmentData = [
+            //     'status' => 0,
+            //     'enrolid' => $enrollId,
+            //     'userid' => $user->id,
+            //     'timestart' => 0,
+            //     'timeend' => 0,
+            //     'modifierid' => 2,
+            //     'timecreated' => time(),
+            //     'timemodified' => time()
+            // ];
+            // $enrollId = $DB->insert_record("user_enrolments", $userEnrolmentData, true);
 
-                $userEnrolmentData = [
-                    'status' => 1,
-                    'enrolid' => $enrollId,
-                    'userid' => $user->id,
-                    'timestart' => 0,
-                    'timeend' => 0,
-                    'modifierid' => 2,
-                    'timecreated' => time(),
-                    'timemodified' => time()
-                ];
-                $enrollId = $DB->insert_record("user_enrolments", $userEnrolmentData, true);
-
-                echo json_encode($course);
-                exit;
-            }
-
-            throw new Exception('Failed to create course');
+            echo json_encode($createdCourse);
+            exit;
         } catch (Exception $e) {
             http_response_code(400);
             echo json_encode([

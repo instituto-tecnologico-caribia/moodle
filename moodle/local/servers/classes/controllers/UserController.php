@@ -4,7 +4,7 @@ defined('MOODLE_INTERNAL') || die();
 
 class UserController {
     public static function init($body, $user) {
-        
+
         switch ($body->action) {
             case 'get_user':
                 self::getUser($user);
