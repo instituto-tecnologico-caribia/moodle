@@ -31,7 +31,6 @@ class CourseController {
 
     private static function getNewAssignment($body) {
         $data = CourseValidator::createAssignment($body->data);
-
         global $DB;
         $assignments = $DB->get_records("course");
 
@@ -45,14 +44,26 @@ class CourseController {
 
             // 1. Validate & prepare course data
             $data = CourseValidator::createCourse($body->data);
-
             $data->timecreated  = time();
             $data->timemodified = time();
             $data->startdate    = Helpers::toTimestamp($data->startdate);
             $data->enddate      = Helpers::toTimestamp($data->enddate);
 
+            // echo json_encode(["" => $body->data->image_url]);
+            // exit;
+
             // 2. Create course (Moodle core API)
             $course = create_course($data);
+
+            // OPTIONAL: Set thumbnail from URL
+            if ($body->data->image_url) {
+                try {
+                    Helpers::setCourseThumbnailFromUrl($course->id, $body->data->image_url);
+                } catch (Exception $imgex) {
+                    // Log but do not fail course creation
+                    debugging('Course image error: ' . $imgex->getMessage(), DEBUG_DEVELOPER);
+                }
+            }
 
             // 3. Get manual enrol plugin
             $enrolplugin = enrol_get_plugin('manual');
@@ -81,7 +92,7 @@ class CourseController {
 
             // 5. Enrol user properly
             // Default roleid = student (usually 5, but safer to resolve dynamically)
-            $studentrole = $DB->get_record('role', ['shortname' => 'student'], '*', MUST_EXIST);
+            $studentrole = $DB->get_record('role', ['shortname' => 'manager'], '*', MUST_EXIST);
             $enrolplugin->enrol_user(
                 $manualinstance,
                 $user->id,
@@ -91,10 +102,7 @@ class CourseController {
             );
 
             // 6. Return response
-            echo json_encode([
-                'success' => true,
-                'course'  => $course
-            ]);
+            echo json_encode($course);
             exit;
         } catch (Exception $e) {
             http_response_code(400);

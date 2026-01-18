@@ -118,6 +118,7 @@ class CourseValidator {
             'showactivitydates' => 1,
             'showcompletionconditions' => 1,
             'pdfexportfont' => '',
+            'image_url' => '',
         ];
 
         $validators = [

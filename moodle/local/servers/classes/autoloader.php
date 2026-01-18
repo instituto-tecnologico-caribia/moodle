@@ -1,9 +1,14 @@
 <?php
 defined('MOODLE_INTERNAL') || die();
 
-
 // Cargar el autoloader de Composer primero
 $composer_autoload = __DIR__ . '/../vendor/autoload.php';
+
+require_once($CFG->libdir . '/filelib.php');
+require_once($CFG->dirroot . '/course/lib.php');
+
+
+
 if (file_exists($composer_autoload)) {
     require_once($composer_autoload);
 }
