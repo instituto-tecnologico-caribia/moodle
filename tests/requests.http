@@ -1,8 +1,8 @@
 
 ### get token user
 POST http://localhost:8080/local/servers/main.php HTTP/1.1
-authorization: Bearer 9b97a190cfd7a1ba683c8bec9b494a6c
 Content-Type: application/json
+api-token: 5a1a68407745899d3c286ee41113a957
 
 {
     "action": "get_user"
@@ -10,8 +10,8 @@ Content-Type: application/json
 
 ### get token course
 POST http://localhost:8080/local/servers/main.php HTTP/1.1
-authorization: Bearer 9b97a190cfd7a1ba683c8bec9b494a6c
 Content-Type: application/json
+api-token: 5a1a68407745899d3c286ee41113a957
 
 {
   "action": "create_user",

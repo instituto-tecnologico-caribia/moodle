@@ -1,8 +1,6 @@
 <?php
 defined('MOODLE_INTERNAL') || die();
 
-require_once(__DIR__ . "./course/lib.php");
-require_once(__DIR__ . "./enrol/manual/lib.php");
 
 // Cargar el autoloader de Composer primero
 $composer_autoload = __DIR__ . '/../vendor/autoload.php';

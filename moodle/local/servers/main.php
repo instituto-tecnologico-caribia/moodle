@@ -1,6 +1,7 @@
 <?php
 require_once(__DIR__ . '/../../config.php');
 require_once(__DIR__ . '/classes/autoloader.php');
+require_once($CFG->dirroot . '/course/lib.php');
 
 try {
     header('Content-Type: application/json');
