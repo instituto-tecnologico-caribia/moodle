@@ -6,3 +6,4 @@ moodledata/
 data/
 plugins/
 .env
+servers/

@@ -1,1 +1,7 @@
-# Instituto Tecnológico Caribia
+# JavaScrip
+
+```ts 
+function main() {
+
+}
+```
