@@ -16,13 +16,12 @@ api-token: 5a1a68407745899d3c286ee41113a957
 {
   "action": "create_new_course",
   "data": {
-    "categoryid": 1,
-    "fullname": "JavaScript",
-    "shortname": "JS-113-2026",
+    "fullname": "CSS",
+    "shortname": "CSS-113-2026",
     "category": 1,
     "startdate": "2026-02-02",
     "enddate": "2026-05-02",
-    "idnumber": "js-112-2026",
+    "idnumber": "css-112-2026",
     "summary": "# Assignment for JavaScript"
   }
 }

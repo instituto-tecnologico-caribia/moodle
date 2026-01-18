@@ -94,9 +94,9 @@ class CourseValidator {
     }
     public static function createCourse($data) {
         $defaults = [
-            'summaryformat' => 4,
+            'summaryformat' => "4",
             'format' => 'weeks',
-            'showgrades' => 1,
+            'showgrades' => 1,        
             'newsitems' => 5,
             'relativedatesmode' => 0,
             'marker' => 0,

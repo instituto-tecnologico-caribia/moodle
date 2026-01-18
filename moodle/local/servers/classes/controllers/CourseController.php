@@ -42,36 +42,59 @@ class CourseController {
     private static function getNewCourse($body, $user) {
         try {
             global $DB;
-            // $data = CourseValidator::createCourse($body->data);
-            $data = $body->data;        
-            $data->timecreated = time(); // now
-            $data->timemodified = time(); // now
 
-            $course = new stdClass();
-            $course->fullname  = $data->fullname;
-            $course->shortname = $data->shortname;
-            $course->category  = $data->categoryid;
-            $course->startdate = Helpers::toTimestamp($data->startdate);
-            $course->enddate   = Helpers::toTimestamp($data->enddate);
+            // 1. Validate & prepare course data
+            $data = CourseValidator::createCourse($body->data);
 
-            $createdCourse = create_course($course);
+            $data->timecreated  = time();
+            $data->timemodified = time();
+            $data->startdate    = Helpers::toTimestamp($data->startdate);
+            $data->enddate      = Helpers::toTimestamp($data->enddate);
 
-            // $enrolData = ['enrol' => 'manual', 'status' => '1', 'courseid' => $createdCourse->id, 'sortorder' => $createdCourse->sortorder,];
-            // $enrollId = $DB->insert_record("enrol", $enrolData, true);
+            // 2. Create course (Moodle core API)
+            $course = create_course($data);
 
-            // $userEnrolmentData = [
-            //     'status' => 0,
-            //     'enrolid' => $enrollId,
-            //     'userid' => $user->id,
-            //     'timestart' => 0,
-            //     'timeend' => 0,
-            //     'modifierid' => 2,
-            //     'timecreated' => time(),
-            //     'timemodified' => time()
-            // ];
-            // $enrollId = $DB->insert_record("user_enrolments", $userEnrolmentData, true);
+            // 3. Get manual enrol plugin
+            $enrolplugin = enrol_get_plugin('manual');
+            if (!$enrolplugin) {
+                throw new Exception('Manual enrolment plugin is not enabled');
+            }
 
-            echo json_encode($createdCourse);
+            // 4. Find (or create) manual enrolment instance for the course
+            $instances = enrol_get_instances($course->id, true);
+            $manualinstance = null;
+
+            foreach ($instances as $instance) {
+                if ($instance->enrol === 'manual') {
+                    $manualinstance = $instance;
+                    break;
+                }
+            }
+
+            // Create manual enrol instance if missing
+            if (!$manualinstance) {
+                $instanceid = $enrolplugin->add_instance($course, [
+                    'status' => ENROL_INSTANCE_ENABLED
+                ]);
+                $manualinstance = $DB->get_record('enrol', ['id' => $instanceid], '*', MUST_EXIST);
+            }
+
+            // 5. Enrol user properly
+            // Default roleid = student (usually 5, but safer to resolve dynamically)
+            $studentrole = $DB->get_record('role', ['shortname' => 'student'], '*', MUST_EXIST);
+            $enrolplugin->enrol_user(
+                $manualinstance,
+                $user->id,
+                $studentrole->id,
+                time(), // timestart
+                0       // timeend (0 = no end)
+            );
+
+            // 6. Return response
+            echo json_encode([
+                'success' => true,
+                'course'  => $course
+            ]);
             exit;
         } catch (Exception $e) {
             http_response_code(400);
