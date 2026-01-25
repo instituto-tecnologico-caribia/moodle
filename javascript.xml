@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+    <!-- Question 1 -->
+    <question type="coderunner">
+        <name>
+            <text>JS Sum 1</text>
+        </name>
+
+        <questiontext format="html">
+            <text><![CDATA[Write a JavaScript function <code>sum(a, b)</code>that returns the sum of two numbers.
+      ]]></text>
+        </questiontext>
+
+        <generalfeedback>
+            <text>The function should return a + b.</text>
+        </generalfeedback>
+
+        <coderunner>
+            <language>javascript</language>
+            <template>javascript_function</template>
+
+            <answer><![CDATA[
+function sum(a, b) {
+  // your code here
+}
+      ]]></answer>
+
+            <testcases>
+                <testcase>
+                    <stdin>sum(2, 3)</stdin>
+                    <expected>5</expected>
+                </testcase>
+                <testcase>
+                    <stdin>sum(10, 5)</stdin>
+                    <expected>15</expected>
+                </testcase>
+            </testcases>
+        </coderunner>
+    </question>
+
+    <!-- Question 2 -->
+    <question type="coderunner">
+        <name>
+            <text>JS Sum 2</text>
+        </name>
+
+        <questiontext format="html">
+            <text><![CDATA[
+        Create a function <code>sum(a, b)</code>
+        that adds two integers and returns the result.
+      ]]></text>
+        </questiontext>
+
+        <coderunner>
+            <language>javascript</language>
+            <template>javascript_function</template>
+
+            <answer><![CDATA[
+function sum(a, b) {
+  // TODO
+}
+      ]]></answer>
+
+            <testcases>
+                <testcase>
+                    <stdin>sum(1, 1)</stdin>
+                    <expected>2</expected>
+                </testcase>
+                <testcase>
+                    <stdin>sum(7, 8)</stdin>
+                    <expected>15</expected>
+                </testcase>
+            </testcases>
+        </coderunner>
+    </question>
+
+    <!-- Question 3 -->
+    <question type="coderunner">
+        <name>
+            <text>JS Sum 3</text>
+        </name>
+
+        <questiontext format="html">
+            <text><![CDATA[
+        Write a JavaScript function called <code>sum</code>
+        that takes two numbers and returns their sum.
+      ]]></text>
+        </questiontext>
+
+        <coderunner>
+            <language>javascript</language>
+            <template>javascript_function</template>
+
+            <answer><![CDATA[
+function sum(a, b) {
+  // implement here
+}
+      ]]></answer>
+
+            <testcases>
+                <testcase>
+                    <stdin>sum(100, 50)</stdin>
+                    <expected>150</expected>
+                </testcase>
+                <testcase>
+                    <stdin>sum(-5, 5)</stdin>
+                    <expected>0</expected>
+                </testcase>
+            </testcases>
+        </coderunner>
+    </question>
+
+</quiz>

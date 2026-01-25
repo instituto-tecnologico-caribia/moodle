@@ -78,11 +78,13 @@ foreach ($plugnmeets as $plugnmeet) {
         $link = html_writer::link(
             new moodle_url('/mod/plugnmeet/view.php', array('id' => $plugnmeet->coursemodule)),
             format_string($plugnmeet->name, true),
-            array('class' => 'dimmed'));
+            array('class' => 'dimmed')
+        );
     } else {
         $link = html_writer::link(
             new moodle_url('/mod/plugnmeet/view.php', array('id' => $plugnmeet->coursemodule)),
-            format_string($plugnmeet->name, true));
+            format_string($plugnmeet->name, true)
+        );
     }
 
     if ($course->format == 'weeks' or $course->format == 'topics') {

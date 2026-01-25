@@ -8,6 +8,32 @@ api-token: 5a1a68407745899d3c286ee41113a957
 }
 
 
+### get_course_categories
+POST http://localhost:8080/local/servers/main.php HTTP/1.1
+Content-Type: application/json
+api-token: 5a1a68407745899d3c286ee41113a957
+
+{
+  "action": "get_course_categories"
+}
+
+
+### create_course_categories
+POST http://localhost:8080/local/servers/main.php HTTP/1.1
+Content-Type: application/json
+api-token: 5a1a68407745899d3c286ee41113a957
+
+{
+  "action": "create_course_categories",
+  "data": {
+    "name": "Ciencia de Datos",
+    "idnumber": "CD-2026",
+    "description": "# Ciencia de Datos e Inteligencia Artificial",
+    "parent": "5"
+  }
+}
+
+
 ### create_new_assignment
 POST http://localhost:8080/local/servers/main.php HTTP/1.1
 Content-Type: application/json

@@ -92,6 +92,7 @@ class CourseValidator {
 
         return $data;
     }
+
     public static function createCourse($data) {
         $defaults = [
             'summaryformat' => "4",
@@ -129,6 +130,30 @@ class CourseValidator {
             'startdate'  => v::stringType()->length(1, null),
             'enddate'    => v::stringType()->length(1, null),
             'summary'    => v::stringType()->length(1, null),
+        ];
+
+        foreach ($defaults as $field => $_) {
+            $validators[$field] = v::stringType();
+        }
+
+        return self::validateAndNormalize($data, $validators, $defaults);
+    }
+
+    public static function createCourseCategory($data) {
+        $defaults = [
+            'descriptionformat' => "4",
+            'visible' => "1",
+            'visibleold' => "1",
+            'depth' => "1",            
+            "parent" => "0",
+            'timemodified' => time(),
+        ];
+
+        $validators = [
+            'name'   => v::stringType()->length(1, 255),
+            'idnumber'   => v::stringType()->length(1, 255),
+            'description'  => v::stringType(),
+            'parent'   => v::intType()->min(1),        
         ];
 
         foreach ($defaults as $field => $_) {

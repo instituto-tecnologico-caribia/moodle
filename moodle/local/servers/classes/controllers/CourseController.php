@@ -7,28 +7,61 @@ class CourseController {
     public static function init($body, $user) {
         switch ($body->action) {
             case 'get_all_assignments':
-                self::getAll();
+                self::getAll("assign");
+                break;
+            case 'get_course_categories':
+                self::getAll("course_categories");
+                break;
+            case 'create_course_categories':
+                self::createCourseCategories($body);
                 break;
             case 'create_new_course':
-                self::getNewCourse($body, $user);
+                self::createNewCourse($body, $user);
                 break;
             case 'create_new_assignment':
                 self::getNewAssignment($body);
                 break;
+
 
             default:
                 break;
         }
     }
 
-    private static function getAll() {
+    private static function getAll($table) {
         global $DB;
-        $assignments = $DB->get_records("assign");
+        $elements = $DB->get_records($table);
 
-        echo json_encode($assignments);
+        echo json_encode($elements);
         exit;
     }
 
+    private static function createCourseCategories($body) {
+        try {
+            $data = CourseValidator::createCourseCategory($body->data);
+            // $data['path'] = '/'. mb_strtolower($data->idnumber, 'UTF-8');
+
+            global $DB;
+            $exists = $DB->get_record_sql("SELECT id FROM {course_categories} WHERE idnumber = :idnumber", ['idnumber' => $data->idnumber]);
+            if ($exists)
+                throw new Exception('Category already exists');
+
+            $categoryId = $DB->insert_record("course_categories", $data, true);
+            if ($categoryId) {
+                $category = $DB->get_record("course_categories", array("id" => $categoryId));
+                echo json_encode($category);
+                exit;
+            }
+            throw new Exception("Failed to create course category");
+        } catch (Exception $e) {
+            http_response_code(400);
+            echo json_encode([
+                'success' => false,
+                'message' => $e->getMessage()
+            ]);
+            exit;
+        }
+    }
     private static function getNewAssignment($body) {
         $data = CourseValidator::createAssignment($body->data);
         global $DB;
@@ -38,7 +71,7 @@ class CourseController {
         exit;
     }
 
-    private static function getNewCourse($body, $user) {
+    private static function createNewCourse($body, $user) {
         try {
             global $DB;
 

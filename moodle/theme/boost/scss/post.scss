@@ -24,6 +24,7 @@
     border: 1px solid #dee2e6;
     border-radius: 1rem;
     background: white;
+    padding: 0 5px;
   }
 
   .courseindex-item {
@@ -66,7 +67,7 @@
   .courseindex .courseindex-item.pageitem {
     border-radius: 15px !important;
     .current-badge {
-      background: white !important;
+      background: rgb(155, 14, 14) !important;
       color: $primary !important;
     }
   }
@@ -217,9 +218,56 @@
   }
 }
 
-
 .apply-btn {
   display: flex;
-  
-  background: red !important;
+  background: #941414 !important;
+}
+
+.courseindex .courseindex-item {
+  margin-top: 3px !important;
+  &:hover {
+    background-color: #b9b9b942 !important;
+
+    a {
+      color: rgb(0, 0, 0) !important;
+    }
+  }
+
+  &:nth-child(1) {
+    margin-top: 0 !important;
+    &:hover {
+      background-color: white !important;
+
+      a {
+        color: rgb(0, 0, 0) !important;
+      }
+    }
+  }
+}
+.courseindex .courseindex-item.pageitem {
+  border-radius: 15px !important;
+  background-color: #941414 !important;
+
+  a {
+    color: white !important;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: #7e1111 !important;
+
+    a {
+      color: white !important;
+    }
+  }
+
+  &:nth-child(1) {
+    margin-top: 0 !important;
+    width: 100% !important;
+  }
+}
+
+.courseindex .courseindex-section.dropready .courseindex-item-content {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }

@@ -33,31 +33,40 @@ if ($hassiteconfig) {
         'mod_plugnmeet/plugnmeet_server_url',
         get_string('plugnmeet_server_url', 'plugnmeet'),
         get_string('plugnmeet_server_url_des', 'plugnmeet'),
-        "https://demo.plugnmeet.com", PARAM_URL));
+        "https://demo.plugnmeet.com",
+        PARAM_URL
+    ));
 
     $settings->add(new admin_setting_configtext(
         'mod_plugnmeet/plugnmeet_api_key',
         get_string('plugnmeet_api_key', 'plugnmeet'),
         get_string('plugnmeet_api_key_des', 'plugnmeet'),
-        "plugnmeet", PARAM_TEXT));
+        "plugnmeet",
+        PARAM_TEXT
+    ));
 
     $settings->add(new admin_setting_configtext(
         'mod_plugnmeet/plugnmeet_secret',
         get_string('plugnmeet_secret', 'plugnmeet'),
         get_string('plugnmeet_secret_des', 'plugnmeet'),
-        "zumyyYWqv7KR2kUqvYdq4z4sXg7XTBD2ljT6", PARAM_TEXT));
+        "zumyyYWqv7KR2kUqvYdq4z4sXg7XTBD2ljT6",
+        PARAM_TEXT
+    ));
 
     $settings->add(new admin_setting_configstoredfile(
         'mod_plugnmeet/custom_logo',
         get_string('custom_logo', 'plugnmeet'),
         get_string('custom_logo_des', 'plugnmeet'),
-        'custom_logo', 0,
-        array('maxfiles' => 1, 'accepted_types' => array('.png', '.jpg'))));
+        'custom_logo',
+        0,
+        array('maxfiles' => 1, 'accepted_types' => array('.png', '.jpg'))
+    ));
 
     $settings->add(new admin_setting_heading(
         'mod_plugnmeet/plugnmeetoptions',
         get_string('plugnmeetoptions', 'plugnmeet'),
-        ''));
+        ''
+    ));
 
     $dynacast = array(
         1 => get_string('yes', 'plugnmeet'),
@@ -67,7 +76,9 @@ if ($hassiteconfig) {
         'mod_plugnmeet/enable_dynacast',
         get_string('enable_dynacast', 'mod_plugnmeet'),
         get_string('enable_dynacast_des', 'mod_plugnmeet'),
-        1, $dynacast));
+        1,
+        $dynacast
+    ));
 
     $simulcast = array(
         1 => get_string('yes', 'plugnmeet'),
@@ -77,7 +88,9 @@ if ($hassiteconfig) {
         'mod_plugnmeet/enable_simulcast',
         get_string('enable_simulcast', 'mod_plugnmeet'),
         get_string('enable_simulcast_des', 'mod_plugnmeet'),
-        1, $simulcast));
+        1,
+        $simulcast
+    ));
 
     $videocodec = array(
         "vp8" => "vp8",
@@ -89,7 +102,9 @@ if ($hassiteconfig) {
         'mod_plugnmeet/video_codec',
         get_string('video_codec', 'mod_plugnmeet'),
         get_string('video_codec_des', 'mod_plugnmeet'),
-        'vp8', $videocodec));
+        'vp8',
+        $videocodec
+    ));
 
     $webcamresolution = array(
         "h90" => "h90",
@@ -107,7 +122,9 @@ if ($hassiteconfig) {
         'mod_plugnmeet/default_webcam_resolution',
         get_string('default_webcam_resolution', 'mod_plugnmeet'),
         get_string('default_webcam_resolution_des', 'mod_plugnmeet'),
-        'h720', $webcamresolution));
+        'h720',
+        $webcamresolution
+    ));
 
     $screenshareresolution = array(
         "h360fps3" => "h360fps3",
@@ -119,8 +136,13 @@ if ($hassiteconfig) {
     $settings->add(new admin_setting_configselect(
         'mod_plugnmeet/default_screen_share_resolution',
         get_string('default_screen_share_resolution', 'mod_plugnmeet'),
-        get_string('default_screen_share_resolution_des',
-            'mod_plugnmeet'), 'h1080fps15', $screenshareresolution));
+        get_string(
+            'default_screen_share_resolution_des',
+            'mod_plugnmeet'
+        ),
+        'h1080fps15',
+        $screenshareresolution
+    ));
 
     $audiopreset = array(
         "telephone" => "telephone",
@@ -133,8 +155,13 @@ if ($hassiteconfig) {
     $settings->add(new admin_setting_configselect(
         'mod_plugnmeet/default_audio_preset',
         get_string('default_audio_preset', 'mod_plugnmeet'),
-        get_string('default_audio_preset_des',
-            'mod_plugnmeet'), 'music', $audiopreset));
+        get_string(
+            'default_audio_preset_des',
+            'mod_plugnmeet'
+        ),
+        'music',
+        $audiopreset
+    ));
 
     $stopmictrackonmute = array(
         1 => get_string('yes', 'mod_plugnmeet'),
@@ -144,11 +171,15 @@ if ($hassiteconfig) {
         'mod_plugnmeet/stop_mic_track_on_mute',
         get_string('stop_mic_track_on_mute', 'mod_plugnmeet'),
         get_string('stop_mic_track_on_mute_des', 'mod_plugnmeet'),
-        1, $stopmictrackonmute));
+        1,
+        $stopmictrackonmute
+    ));
 
     $settings->add(new admin_setting_heading(
         'mod_plugnmeet/plugnmeetextra',
-        get_string('extraoption', 'plugnmeet'), ''));
+        get_string('extraoption', 'plugnmeet'),
+        ''
+    ));
 
     $loadclient = array(
         1 => get_string('remote', 'mod_plugnmeet'),
@@ -158,18 +189,23 @@ if ($hassiteconfig) {
         'mod_plugnmeet/client_load',
         get_string('client_load', 'mod_plugnmeet'),
         get_string('client_load_des', 'mod_plugnmeet'),
-        1, $loadclient));
+        1,
+        $loadclient
+    ));
 
     $settings->add(new admin_setting_configtext(
         'mod_plugnmeet/client_download_url',
         get_string('client_download_url', 'plugnmeet'),
         get_string('client_download_url_des', 'plugnmeet'),
         "https://github.com/mynaparrot/plugNmeet-client/releases/latest/download/client.zip",
-        PARAM_URL));
+        PARAM_URL
+    ));
 
     $setting = new admin_setting_description(
-        'mod_plugnmeet/update_client', "",
-        get_string('update_client_code', 'plugnmeet'));
+        'mod_plugnmeet/update_client',
+        "",
+        get_string('update_client_code', 'plugnmeet')
+    );
     $setting->nosave = true;
     $settings->add($setting);
 
@@ -177,56 +213,67 @@ if ($hassiteconfig) {
     $settings->add(new admin_setting_heading(
         'mod_plugnmeet/design_customization',
         get_string('design_customization', 'plugnmeet'),
-        ''));
+        ''
+    ));
 
     $settings->add(new admin_setting_configtext(
         'mod_plugnmeet/custom_css_url',
         get_string('custom_css_url', 'plugnmeet'),
         get_string('custom_css_url_des', 'plugnmeet'),
-        "", PARAM_URL));
+        "",
+        PARAM_URL
+    ));
 
     $settings->add(new admin_setting_configcolourpicker(
         'mod_plugnmeet/primary_color',
         get_string('primary_color', 'plugnmeet'),
         get_string('primary_color_des', 'plugnmeet'),
-        ''));
+        ''
+    ));
 
     $settings->add(new admin_setting_configcolourpicker(
         'mod_plugnmeet/secondary_color',
         get_string('secondary_color', 'plugnmeet'),
         get_string('secondary_color_des', 'plugnmeet'),
-        ''));
+        ''
+    ));
 
     $settings->add(new admin_setting_configcolourpicker(
         'mod_plugnmeet/background_color',
         get_string('background_color', 'plugnmeet'),
         get_string('background_color_des', 'plugnmeet'),
-        ''));
+        ''
+    ));
 
     $settings->add(new admin_setting_configstoredfile(
         'mod_plugnmeet/background_image',
         get_string('background_image', 'plugnmeet'),
-        get_string('background_image_des', 'plugnmeet'), 'background_image',
+        get_string('background_image_des', 'plugnmeet'),
+        'background_image',
         0,
-        array('maxfiles' => 1, 'accepted_types' => array('.png', '.jpg'))));
+        array('maxfiles' => 1, 'accepted_types' => array('.png', '.jpg'))
+    ));
 
     $settings->add(new admin_setting_configcolourpicker(
         'mod_plugnmeet/header_color',
         get_string('header_color', 'plugnmeet'),
         get_string('header_color_des', 'plugnmeet'),
-        ''));
+        ''
+    ));
 
     $settings->add(new admin_setting_configcolourpicker(
         'mod_plugnmeet/footer_color',
         get_string('footer_color', 'plugnmeet'),
         get_string('footer_color_des', 'plugnmeet'),
-        ''));
+        ''
+    ));
 
     $settings->add(new admin_setting_configcolourpicker(
         'mod_plugnmeet/side_panel_bg_color',
         get_string('side_panel_bg_color', 'plugnmeet'),
         get_string('side_panel_bg_color_des', 'plugnmeet'),
-        ''));
+        ''
+    ));
 
     $copyright = array(
         1 => get_string('yes', 'mod_plugnmeet'),
@@ -236,54 +283,55 @@ if ($hassiteconfig) {
         'mod_plugnmeet/copyright_display',
         get_string('copyright_display', 'mod_plugnmeet'),
         get_string('copyright_display_des', 'mod_plugnmeet'),
-        1, $copyright));
+        1,
+        $copyright
+    ));
 
     $settings->add(new admin_setting_configtext(
         'mod_plugnmeet/copyright_text',
         get_string('copyright_text', 'plugnmeet'),
         get_string('copyright_text_des', 'plugnmeet'),
         "Powered by <a href=\"https://www.plugnmeet.org\" target=\"_blank\">plugNmeet</a>",
-        PARAM_RAW));
+        PARAM_RAW
+    ));
 }
 ?>
-    <script type="text/javascript">
-        window.addEventListener('load', function () {
-            document.getElementById('updateClient').addEventListener('click', (e) => {
-                e.preventDefault();
-                e.target.setAttribute('disabled', 'disabled');
+<script type="text/javascript">
+    window.addEventListener('load', function() {
+        document.getElementById('updateClient').addEventListener('click', (e) => {
+            e.preventDefault();
+            e.target.setAttribute('disabled', 'disabled');
 
-                require(['core/ajax'], function (ajax) {
-                    ajax.call([
-                        {
-                            methodname: 'mod_plugnmeet_update_client',
-                            args: {},
-                            done: (res) => {
-                                e.target.removeAttribute('disabled');
-                                alert(res.msg);
-                            },
-                            fail: (ex) => {
-                                e.target.removeAttribute('disabled');
-                                alert(ex.error);
-                            },
-                        },
-                    ]);
-                });
+            require(['core/ajax'], function(ajax) {
+                ajax.call([{
+                    methodname: 'mod_plugnmeet_update_client',
+                    args: {},
+                    done: (res) => {
+                        e.target.removeAttribute('disabled');
+                        alert(res.msg);
+                    },
+                    fail: (ex) => {
+                        e.target.removeAttribute('disabled');
+                        alert(ex.error);
+                    },
+                }, ]);
             });
+        });
 
-            const client_load = document.getElementById('id_s_mod_plugnmeet_client_load');
-            if (client_load.value === '1') {
+        const client_load = document.getElementById('id_s_mod_plugnmeet_client_load');
+        if (client_load.value === '1') {
+            document.getElementById('admin-client_download_url').style.display = 'none';
+            document.getElementById('updateClient').parentElement.style.display = 'none';
+        }
+        client_load.addEventListener('change', function() {
+            if (this.value === "2") {
+                document.getElementById('admin-client_download_url').style.display = '';
+                document.getElementById('updateClient').parentElement.style.display = ''
+            } else {
                 document.getElementById('admin-client_download_url').style.display = 'none';
                 document.getElementById('updateClient').parentElement.style.display = 'none';
             }
-            client_load.addEventListener('change', function () {
-                if (this.value === "2") {
-                    document.getElementById('admin-client_download_url').style.display = '';
-                    document.getElementById('updateClient').parentElement.style.display = ''
-                } else {
-                    document.getElementById('admin-client_download_url').style.display = 'none';
-                    document.getElementById('updateClient').parentElement.style.display = 'none';
-                }
-            });
         });
-    </script>
+    });
+</script>
 <?php
