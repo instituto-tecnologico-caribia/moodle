@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+  <question type="description">
+    <name>
+      <text>Pronunciation Practice 1</text>
+    </name>
+
+
+
+    <questiontext format="html">
+      <text><![CDATA[
+
+<div class="pronunciation-box">
+  <p class="word">Say: <strong>Hello, how are you?</strong></p>
+
+  <button id="playBtn">▶ Play</button>
+  <button id="recordBtn">🎤 Record</button>
+  <button id="submitBtn">✅ Submit</button>
+
+  <div id="result"></div>
+</div>
+
+<style>
+.pronunciation-box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  max-width: 400px;
+  font-family: Arial, sans-serif;
+}
+
+.word {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin-right: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
+</style>
+
+<script>
+(function() {
+  document.getElementById('playBtn').onclick = () => {
+    alert('TTS would play here');
+  };
+
+  document.getElementById('recordBtn').onclick = () => {
+    alert('Recording started');
+  };
+
+  document.getElementById('submitBtn').onclick = () => {
+    document.getElementById('result').innerText =
+      'Pronunciation score: 85%';
+  };
+})();
+</script>
+
+      ]]></text>
+    </questiontext>
+  </question>
+
+</quiz>

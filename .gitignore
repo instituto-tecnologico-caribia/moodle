@@ -6,3 +6,5 @@ moodledata/
 data/
 plugins/
 .env
+
+*.zip

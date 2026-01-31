@@ -1,7 +1,1 @@
-# JavaScrip
-
-```ts 
-function main() {
-
-}
-```
+# Institute of Technology Caribia
