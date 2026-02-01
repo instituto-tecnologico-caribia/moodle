@@ -8,23 +8,13 @@ services:
       - "8080:80"
     volumes:
       - ./data/moodledata:/var/www/html/moodledata
-      - ./apps/moodle:/var/www/html
+      - ./moodle:/var/www/html
     depends_on:
       - postgres
     env_file:
       - .env
     networks:
       - caribia_network
-  # web:
-  #   build:
-  #     context: "./apps/web"
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ./apps/web:/app
-  #   command: yarn dev
-  #   networks:
-  #     - caribia_network
 
   postgres:
     image: postgres:alpine
