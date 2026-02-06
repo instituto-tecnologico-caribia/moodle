@@ -119,6 +119,24 @@
   }
 }
 
+.editmode-switch-form {
+  margin-bottom: 0 !important;
+}
+
+.c-logo {
+  img {
+    margin: 0 !important;
+    width: 35px;
+    height: 35px;
+    object-fit: contain !important;
+  }
+
+  b {
+    right: 10px !important;
+    font-weight: 600 !important;
+  }
+}
+
 [data-key="home"] {
   display: none !important;
 }

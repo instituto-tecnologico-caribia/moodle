@@ -3,7 +3,7 @@ version: "3.9"
 services:
   moodle:
     build:
-      context: "./apps/moodle"
+      context: "./moodle"
     ports:
       - "8080:80"
     volumes:
