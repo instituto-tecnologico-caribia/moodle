@@ -3,28 +3,39 @@ version: "3.9"
 services:
   moodle:
     build:
-      context: "./moodle"
+      context: "./v4"
     ports:
       - "8080:80"
     volumes:
       - ./data/moodledata:/var/www/html/moodledata
-      - ./moodle:/var/www/html
-    depends_on:
-      - postgres
+      - ./v4:/var/www/html   
     env_file:
-      - .env
+      - .env    
     networks: 
       - caribia_network
 
   postgres:
-    image: postgres:alpine
-    ports:
-      - 5432:5432
+    image: postgres:alpine   
     volumes:
       - ./data/postgres/data:/var/lib/postgresql
     env_file:
       - .env
-    restart: unless-stopped
+    restart: always
+    networks:
+      - caribia_network
+
+  pgbouncer:
+    build:
+      context: "./pgbouncer"
+    container_name: pgbouncer
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 6432:6432
+    volumes:
+      - ./pgbouncer/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini:ro
+      - ./pgbouncer/users.txt:/etc/pgbouncer/users.txt:ro
     networks:
       - caribia_network
 

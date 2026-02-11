@@ -1,20 +1,23 @@
 <?php
+
+use function DI\get;
+
 unset($CFG);
 global $CFG;
 $CFG = new stdClass();
 
 // --- Database configuration ---
-$CFG->dbtype    = getenv('DATABASE_TYPE') ?: 'mariadb';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = getenv('DATABASE_HOST') ?: 'mariadb';
+$CFG->dbtype    = getenv('DATABASE_TYPE') ?: 'pgsql';
+$CFG->dbhost    = getenv('DATABASE_HOST') ?: 'postgres';
 $CFG->dbname    = getenv('DATABASE_NAME') ?: 'moodle';
 $CFG->dbuser    = getenv('DATABASE_USER') ?: 'moodle';
 $CFG->dbpass    = getenv('DATABASE_PASSWORD') ?: 'moodle';
-$CFG->prefix    = 'mdl_';
+$CFG->prefix    = getenv('DATABASE_TABLE_PREFIX') ?: 'mdl_';
 $CFG->dboptions = array(
     'dbpersist' => false,
     'dbsocket' => false,
-    'dbport' => getenv('DATABASE_PORT') ?: '3306',
+    'dbport' => getenv('DATABASE_PORT') ?: 5432,
     'dbhandlesoptions' => false,
     'dbcollation' => 'utf8mb4_unicode_ci'
 );
@@ -36,14 +39,14 @@ $CFG->cachejs = true;
 // $CFG->cachejs = false;
 // $CFG->cachetemplates = false;
 
-// --- Redis Cache Configuration ---
-$CFG->session_handler_class = '\core\session\redis';
-$CFG->session_redis_host = getenv('REDIS_HOST') ?: 'redis';
-$CFG->session_redis_port = getenv('REDIS_PORT') ?: 6379;
-$CFG->session_redis_database = 0;
-$CFG->session_redis_prefix = 'mdl_sess_';
-$CFG->session_redis_acquire_lock_timeout = 120;
-$CFG->session_redis_lock_expire = 7200;
+// // --- Redis Cache Configuration ---
+// $CFG->session_handler_class = '\core\session\redis';
+// $CFG->session_redis_host = getenv('REDIS_HOST');
+// $CFG->session_redis_port = getenv('REDIS_PORT');
+// $CFG->session_redis_database = 0;
+// $CFG->session_redis_prefix = 'mdl_sess_';
+// $CFG->session_redis_acquire_lock_timeout = 120;
+// $CFG->session_redis_lock_expire = 7200;
 
 // Application cache (MUC - Moodle Universal Cache)
 $CFG->alternative_cache_factory_class = 'cache_factory';

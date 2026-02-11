@@ -25,8 +25,7 @@
  */
 
 // only for demo page
-// Notwendig, damit beim Entwicklen unter localhost:3000 auch die xhr Reqeuests durchgehen
-header("Access-Control-Allow-Origin: http://localhost:3000");
+header("Access-Control-Allow-Origin: https://www.caribia.edu.do");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Credentials: true");
 
