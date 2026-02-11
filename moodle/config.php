@@ -26,9 +26,9 @@ $CFG->admin     = 'admin';
 $CFG->directorypermissions = 02777;
 
 // --- Extra options ---
-$CFG->cachetemplates = false;     // Disables template caching (Mustache)
+$CFG->cachetemplates = true;     // Disables template caching (Mustache)
 $CFG->themedesignermode = true; // Set to false for production
-$CFG->cachejs = false;
+$CFG->cachejs = true;
 
 $CFG->debug = 0; // Temporary for debugging
 $CFG->debugdisplay = 0; // Temporary for debugging
