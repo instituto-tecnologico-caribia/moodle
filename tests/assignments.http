@@ -1,7 +1,7 @@
 ### get_all_assignments
 POST http://localhost:8080/local/servers/main.php HTTP/1.1
 Content-Type: application/json
-api-token: 5a1a68407745899d3c286ee41113a957
+api-token: fbb217018c22e6557303305985788037
 
 {
   "action": "get_all_assignments"
@@ -11,7 +11,7 @@ api-token: 5a1a68407745899d3c286ee41113a957
 ### get_course_categories
 POST http://localhost:8080/local/servers/main.php HTTP/1.1
 Content-Type: application/json
-api-token: 5a1a68407745899d3c286ee41113a957
+api-token: fbb217018c22e6557303305985788037
 
 {
   "action": "get_course_categories"
@@ -21,7 +21,7 @@ api-token: 5a1a68407745899d3c286ee41113a957
 ### create_course_categories
 POST http://localhost:8080/local/servers/main.php HTTP/1.1
 Content-Type: application/json
-api-token: 5a1a68407745899d3c286ee41113a957
+api-token: fbb217018c22e6557303305985788037
 
 {
   "action": "create_course_categories",
@@ -29,26 +29,26 @@ api-token: 5a1a68407745899d3c286ee41113a957
     "name": "Ciencia de Datos",
     "idnumber": "CD-2026",
     "description": "# Ciencia de Datos e Inteligencia Artificial",
-    "parent": "5"
+    "parent": "0"
   }
 }
 
 
-### create_new_assignment
+### create_new_course
 POST http://localhost:8080/local/servers/main.php HTTP/1.1
 Content-Type: application/json
-api-token: 5a1a68407745899d3c286ee41113a957
+api-token: fbb217018c22e6557303305985788037
 
 {
   "action": "create_new_course",
   "data": {
-    "fullname": "OPP0",
+    "fullname": "OPP1",
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn-zRLDUWhTLpBICQiT4gRJuqsGnAIwnrj8Q&s",
-    "shortname": "OP0P-113-2026",
-    "category": 1,
+    "shortname": "OP1P-113-2026",
+    "category": 3,
     "startdate": "2026-02-02",
     "enddate": "2026-05-02",
-    "idnumber": "o0pp-112-2026",
+    "idnumber": "00pp-112-2026",
     "summary": "# Assignment for JavaScript"
   }
 }
@@ -57,12 +57,12 @@ api-token: 5a1a68407745899d3c286ee41113a957
 ### create_new_assignment
 POST http://localhost:8080/local/servers/main.php HTTP/1.1
 Content-Type: application/json
-authorization: 5a1a68407745899d3c286ee41113a957
+api-token: fbb217018c22e6557303305985788037
 
 {
   "action": "create_new_assignment",
   "data": {
-    "course": "2",
+    "course": "4",
     "name": "Assignment 1",
     "intro": "0",
     "activity": "0",

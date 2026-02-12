@@ -30,9 +30,6 @@ $CFG->cachetemplates = true;     // Disables template caching (Mustache)
 $CFG->themedesignermode = true; // Set to false for production
 $CFG->cachejs = true;
 
-$CFG->debug = 0; // Temporary for debugging
-$CFG->debugdisplay = 0; // Temporary for debugging
-
 // --- Theme development settings ---
 // Comment these out when not doing theme development
 // $CFG->themedesignermode = true;
