@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
   moodle:
-    build:
-      context: "./v4"
+    image: brayhandeaza/caribia-moodle
+    restart: always
     ports:
       - "8080:80"
     volumes:
