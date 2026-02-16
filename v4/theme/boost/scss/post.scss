@@ -139,9 +139,22 @@ $hover-colors: (
 .editmode-switch-form {
   margin-bottom: 0 !important;
 }
+
 .navbar-brand {
-  background: rgb(72, 11, 239);
+  .logo {
+    width: auto !important;
+    height: 35px !important;
+  }
+  &::after {
+    content: "Caribia" !important;
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+    color: $primary !important;
+    margin-left: 5px !important;
+    color: #262626 !important;
+  }
 }
+
 .c-logo {
   img {
     margin: 0 !important;
