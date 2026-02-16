@@ -1,5 +1,8 @@
 FROM php:8.3-apache
 
+WORKDIR /var/www/html
+COPY . .
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git unzip libpq-dev libfreetype6-dev libpng-dev libjpeg-dev \

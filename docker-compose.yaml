@@ -2,10 +2,10 @@ version: "3.9"
 
 services:
   moodle:
-    image: brayhandeaza/caribia-moodle
-    restart: always
+    build:
+      context: "./v4"
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./data/moodledata:/var/www/html/moodledata
       - ./v4:/var/www/html   

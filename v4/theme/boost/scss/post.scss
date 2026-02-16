@@ -1,3 +1,5 @@
+$primary: #941414 !default;
+
 @media (min-width: 768px) {
   .main-inner,
   .header-maxwidth,
@@ -35,9 +37,9 @@
     }
   }
 
-  &:focus-visible {
-    outline: none;
-  }
+  // &:focus-visible {
+  //   outline: none;
+  // }
 
   .coursename {
     font-size: 1.1rem;
@@ -137,7 +139,9 @@ $hover-colors: (
 .editmode-switch-form {
   margin-bottom: 0 !important;
 }
-
+.navbar-brand {
+  background: rgb(72, 11, 239);
+}
 .c-logo {
   img {
     margin: 0 !important;
@@ -277,7 +281,7 @@ $hover-colors: (
         }
       }
     }
- 
+
     &:hover {
       background-color: #b9b9b942 !important;
       border-radius: 1rem !important;
